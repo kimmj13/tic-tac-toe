@@ -47,10 +47,9 @@ function App() {
 
   // square 클릭시 history도 변경
   const handleClick = (i) => {
-    const newHistory = history.slice(0, stepNumber + 1);
-    const newCurrent = newHistory[newHistory.length - 1];
-
-    const newSquares = newCurrent.squares.slice();
+    const newHistory = history.slice(0, stepNumber + 1); // [{square:[...], {square: [...]}]
+    const newCurrent = newHistory[newHistory.length - 1]; // {square : [...]}
+    const newSquares = newCurrent.squares.slice(); // [...]
     // winner 있거나 이미 값이 들어있을 경우
     if (calculateWinner(newSquares) || newSquares[i]) {
       return;
